@@ -1,0 +1,410 @@
+/* =====================================================================
+   Raiz Apartments — Custom Stylesheet
+   Complements Tailwind CSS with animations, custom components,
+   and dark-mode-aware patterns.
+   ===================================================================== */
+
+/* ── Root Variables ─────────────────────────────────────────────────── */
+:root {
+  --gold:         #C9A84C;
+  --gold-light:   #E8C878;
+  --gold-dark:    #A07835;
+  --brand-dark:   #0f0e17;
+  --brand-gray:   #2d2d2d;
+  --transition:   0.3s ease;
+}
+
+/* ── Base Reset & Typography ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Hero Background Pattern ────────────────────────────────────────── */
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(201,168,76,0.3) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* ── Navbar Scroll State ─────────────────────────────────────────────── */
+/* Applied by JS when user scrolls down */
+#navbar.scrolled {
+  background: rgba(15, 14, 23, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Scrolled state: darken nav text to match white logo on dark bg */
+#navbar.scrolled .nav-link { color: rgba(255,255,255,0.85); }
+#navbar.scrolled #nav-logo  { color: #fff; }
+
+/* ── Scroll-Reveal Animations ────────────────────────────────────────── */
+/* Elements start invisible; JS adds .visible when they enter viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger siblings inside a revealed container */
+.reveal:nth-child(2) { transition-delay: 0.08s; }
+.reveal:nth-child(3) { transition-delay: 0.16s; }
+.reveal:nth-child(4) { transition-delay: 0.24s; }
+
+/* ── Hero Fade-Up (runs on page load, no scroll needed) ─────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Apartment Tab System ────────────────────────────────────────────── */
+.apt-tab {
+  color: #6b7280;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.apt-tab:hover { color: var(--gold); }
+
+.apt-tab.active-tab {
+  background: var(--gold);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.35);
+}
+
+/* ── Feature Pills ───────────────────────────────────────────────────── */
+.feature-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #f5f5f0;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2d2d2d;
+  transition: background var(--transition), color var(--transition);
+}
+
+.dark .feature-pill {
+  background: rgba(255,255,255,0.07);
+  color: #e5e7eb;
+}
+
+.feature-pill:hover {
+  background: rgba(201, 168, 76, 0.12);
+  color: var(--gold);
+}
+
+/* ── Gallery Card Hover ──────────────────────────────────────────────── */
+.gallery-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.25);
+}
+
+/* ── Amenity Cards ───────────────────────────────────────────────────── */
+.amenity-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.amenity-card:hover {
+  background: rgba(201, 168, 76, 0.08);
+  border-color: rgba(201, 168, 76, 0.3);
+  transform: translateY(-4px);
+}
+
+.amenity-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  background: rgba(201, 168, 76, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.amenity-card:hover .amenity-icon {
+  background: var(--gold);
+  color: #fff;
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* ── Proximity Cards (Location Section) ─────────────────────────────── */
+.proximity-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: #f5f5f0;
+  border-radius: 1.25rem;
+  border: 1px solid transparent;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.dark .proximity-card {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.06);
+}
+
+.proximity-card:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.12);
+}
+
+/* ── Booking Form ────────────────────────────────────────────────────── */
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dark .form-label { color: #9ca3af; }
+
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 0.875rem;
+  font-size: 0.9rem;
+  color: #2d2d2d;
+  background: #fafafa;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+  background: #fff;
+}
+
+.dark .form-input {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+  color: #f3f4f6;
+}
+
+.dark .form-input:focus {
+  border-color: var(--gold);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2);
+}
+
+.form-input::placeholder { color: #9ca3af; }
+
+/* ── Testimonial Cards ───────────────────────────────────────────────── */
+.testimonial-card {
+  background: #f9f9f7;
+  border: 1px solid #f0ede6;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.dark .testimonial-card {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.07);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: rgba(201, 168, 76, 0.25);
+}
+
+.dark .testimonial-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* ── FAQ Accordion ───────────────────────────────────────────────────── */
+.faq-item {
+  background: #fff;
+  border: 1px solid #f0ede6;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.dark .faq-item {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.07);
+}
+
+.faq-item.open { border-color: rgba(201, 168, 76, 0.4); }
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2d2d2d;
+  gap: 1rem;
+  user-select: none;
+}
+
+.dark .faq-question { color: #f3f4f6; }
+
+.faq-question:hover { color: var(--gold); }
+
+.faq-icon {
+  color: var(--gold);
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-icon { transform: rotate(180deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 300px;
+  padding-bottom: 1.25rem;
+}
+
+.faq-answer p {
+  padding: 0 1.5rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.dark .faq-answer p { color: #9ca3af; }
+
+/* ── Contact Cards ───────────────────────────────────────────────────── */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background: #f9f9f7;
+  border: 1px solid #f0ede6;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.dark .contact-card {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.07);
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.contact-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1.25rem;
+  background: rgba(201, 168, 76, 0.1);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Social Icons (Footer) ───────────────────────────────────────────── */
+.social-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ── Mobile Menu Slide-Down ──────────────────────────────────────────── */
+#mobile-menu {
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Smooth Input Date Picker ────────────────────────────────────────── */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: opacity(0.4);
+  cursor: pointer;
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) opacity(0.4);
+}
+
+/* ── Scrollbar Styling ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(201, 168, 76, 0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ── Selection Color ─────────────────────────────────────────────────── */
+::selection { background: rgba(201, 168, 76, 0.3); color: inherit; }
+
+/* ── Responsive adjustments ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .amenity-card   { padding: 1.5rem; }
+  .contact-card   { padding: 2rem 1.5rem; }
+  .testimonial-card { padding: 1.5rem; }
+}

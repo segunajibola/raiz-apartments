@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Raiz Apartments – Modern, stylish serviced apartments in the heart of Lagos. Studio, 1-bedroom and 2-bedroom units. 15 mins from the airport." />
+  <meta name="keywords" content="apartments Lagos, short let Lagos, serviced apartments Lagos, Raiz Apartments, Victoria Island, Lekki" />
+  <meta property="og:title" content="Raiz Apartments | Modern Living in the Heart of Lagos" />
+  <meta property="og:description" content="Stylish serviced apartments with 24/7 security, high-speed internet, and easy access to Lagos Island, Lekki, and the airport." />
+  <title>Raiz Apartments | Modern Living in the Heart of Lagos</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#C9A84C',
+              light:   '#E8C878',
+              dark:    '#A07835',
+              50:      '#FDF8EC',
+            },
+            brand: {
+              dark:       '#0f0e17',
+              darker:     '#07070d',
+              gray:       '#2d2d2d',
+              lightgray:  '#f5f5f0',
+            },
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="font-sans bg-white text-brand-gray antialiased dark:bg-brand-darker dark:text-gray-100 transition-colors duration-300">
+
+  <!-- ─── FLOATING WHATSAPP BUTTON ─────────────────────────────────────── -->
+  <a href="https://wa.me/2348000000000?text=Hello%20Raiz%20Apartments%2C%20I%20would%20like%20to%20make%20a%20booking."
+     target="_blank" rel="noopener noreferrer"
+     class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-transform duration-300 hover:scale-110 group"
+     aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp text-2xl"></i>
+    <span class="absolute right-16 bg-green-600 text-white text-xs font-semibold py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Chat with us</span>
+  </a>
+
+  <!-- ─── NAVIGATION ────────────────────────────────────────────────────── -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-500 py-4">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-white font-bold text-sm">R</span>
+        <span class="font-serif text-xl font-bold text-white group-hover:text-gold-light transition-colors" id="nav-logo">Raiz</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="#about"      class="nav-link text-white/90 hover:text-gold transition-colors">About</a></li>
+        <li><a href="#apartments" class="nav-link text-white/90 hover:text-gold transition-colors">Apartments</a></li>
+        <li><a href="#amenities"  class="nav-link text-white/90 hover:text-gold transition-colors">Amenities</a></li>
+        <li><a href="#location"   class="nav-link text-white/90 hover:text-gold transition-colors">Location</a></li>
+        <li><a href="#contact"    class="nav-link text-white/90 hover:text-gold transition-colors">Contact</a></li>
+      </ul>
+
+      <!-- Right Side Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Dark Mode Toggle -->
+        <button id="theme-toggle" class="w-9 h-9 rounded-full flex items-center justify-center text-white/80 hover:text-gold hover:bg-white/10 transition-all" aria-label="Toggle dark mode">
+          <i class="fas fa-moon text-sm" id="theme-icon"></i>
+        </button>
+
+        <!-- Book Now CTA -->
+        <a href="#booking" class="hidden md:inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">
+          Book Now <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="menu-toggle" class="md:hidden w-9 h-9 rounded-full flex items-center justify-center text-white hover:bg-white/10 transition" aria-label="Open menu">
+          <i class="fas fa-bars text-sm" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 bg-brand-dark/95 backdrop-blur-md border-t border-white/10 px-6 py-4 space-y-3">
+      <a href="#about"      class="block text-white/90 hover:text-gold py-2 transition-colors">About</a>
+      <a href="#apartments" class="block text-white/90 hover:text-gold py-2 transition-colors">Apartments</a>
+      <a href="#amenities"  class="block text-white/90 hover:text-gold py-2 transition-colors">Amenities</a>
+      <a href="#location"   class="block text-white/90 hover:text-gold py-2 transition-colors">Location</a>
+      <a href="#contact"    class="block text-white/90 hover:text-gold py-2 transition-colors">Contact</a>
+      <a href="#booking"    class="inline-block bg-gold text-white text-sm font-semibold px-5 py-2.5 rounded-full mt-2">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO SECTION ──────────────────────────────────────────────────── -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-darker via-brand-dark to-[#1a1208]">
+      <div class="absolute inset-0 hero-pattern opacity-5"></div>
+    </div>
+
+    <!-- Decorative gold circle -->
+    <div class="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-gold/10 blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full bg-gold/5 blur-2xl animate-pulse" style="animation-delay:1.5s"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center text-white px-6 max-w-5xl mx-auto">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 rounded-full px-4 py-1.5 text-gold text-sm font-medium mb-8 fade-up" style="animation-delay:0.1s">
+        <span class="w-2 h-2 bg-gold rounded-full animate-ping"></span>
+        Lagos's Premier Serviced Apartments
+      </div>
+
+      <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 fade-up" style="animation-delay:0.2s">
+        Modern Living in the<br />
+        <span class="text-gold">Heart of Lagos</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-white/75 max-w-2xl mx-auto mb-10 leading-relaxed fade-up" style="animation-delay:0.35s">
+        Discover stylish, fully-serviced apartments designed for comfort, security, and convenience — just 15 minutes from the international airport.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up" style="animation-delay:0.5s">
+        <a href="#booking"
+           class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-gold/40 hover:-translate-y-1 text-base">
+          Book Now <i class="fas fa-calendar-check"></i>
+        </a>
+        <a href="#apartments"
+           class="inline-flex items-center gap-2 border border-white/30 hover:border-gold text-white hover:text-gold font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 text-base">
+          View Apartments <i class="fas fa-building"></i>
+        </a>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="mt-20 grid grid-cols-3 gap-4 max-w-lg mx-auto fade-up" style="animation-delay:0.65s">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gold font-serif">3</div>
+          <div class="text-xs text-white/50 mt-1">Apartment Types</div>
+        </div>
+        <div class="text-center border-x border-white/10">
+          <div class="text-3xl font-bold text-gold font-serif">15<span class="text-lg">m</span></div>
+          <div class="text-xs text-white/50 mt-1">From Airport</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gold font-serif">24/7</div>
+          <div class="text-xs text-white/50 mt-1">Security</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 text-xs fade-up" style="animation-delay:0.8s">
+      <span>Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-white/40 to-transparent animate-bounce"></div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT SECTION ─────────────────────────────────────────────────── -->
+  <section id="about" class="py-24 bg-brand-lightgray dark:bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <!-- Text -->
+        <div class="reveal">
+          <span class="text-gold text-sm font-semibold uppercase tracking-widest">Our Story</span>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-gray dark:text-white mt-3 mb-6 leading-tight">
+            A Home Away<br />From Home
+          </h2>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+            Raiz Apartments was born from a simple idea: every guest deserves more than just a room — they deserve an experience. Nestled in the heart of Lagos, our collection of thoughtfully designed apartments blends the warmth of home with the luxury of a boutique hotel.
+          </p>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
+            Whether you're a business traveller looking for productivity or a family seeking comfort, Raiz is your sanctuary. We obsess over every detail — from premium linen to round-the-clock security — so you can focus on what matters most.
+          </p>
+
+          <!-- Key points -->
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-brand-gray dark:text-gray-200">
+              <span class="w-6 h-6 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-check text-gold text-xs"></i>
+              </span>
+              Premium comfort with hotel-grade furnishings
+            </li>
+            <li class="flex items-center gap-3 text-brand-gray dark:text-gray-200">
+              <span class="w-6 h-6 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-check text-gold text-xs"></i>
+              </span>
+              State-of-the-art security systems &amp; on-site personnel
+            </li>
+            <li class="flex items-center gap-3 text-brand-gray dark:text-gray-200">
+              <span class="w-6 h-6 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-check text-gold text-xs"></i>
+              </span>
+              Prime location — minutes from business hubs &amp; the airport
+            </li>
+          </ul>
+        </div>
+
+        <!-- Image / Visual card -->
+        <div class="reveal relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-brand-dark to-brand-gray aspect-[4/5]">
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-6 p-10">
+              <div class="w-20 h-20 rounded-2xl bg-gold/20 flex items-center justify-center">
+                <i class="fas fa-building-columns text-gold text-3xl"></i>
+              </div>
+              <p class="text-white/60 text-center text-sm italic">"A sanctuary of comfort in the heart of Lagos"</p>
+              <!-- Replace this div with an actual <img> tag in production -->
+              <p class="text-white/30 text-xs text-center mt-4">[ Replace with your property photo ]</p>
+            </div>
+          </div>
+          <!-- Floating badge -->
+          <div class="absolute -bottom-5 -left-5 bg-gold text-white rounded-2xl px-6 py-4 shadow-xl">
+            <div class="text-2xl font-bold font-serif">5★</div>
+            <div class="text-xs opacity-80">Guest Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── APARTMENTS SECTION ────────────────────────────────────────────── -->
+  <section id="apartments" class="py-24 bg-white dark:bg-brand-darker">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Heading -->
+      <div class="text-center mb-14 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-widest">Our Units</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-gray dark:text-white mt-3 mb-4">Choose Your Space</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Each unit is fully furnished and equipped with everything you need for a comfortable, productive stay.</p>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="flex justify-center mb-12 reveal">
+        <div class="inline-flex bg-brand-lightgray dark:bg-brand-dark rounded-full p-1 gap-1">
+          <button onclick="switchApt('studio')"   id="tab-studio"    class="apt-tab active-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all">Studio</button>
+          <button onclick="switchApt('one-bed')"  id="tab-one-bed"   class="apt-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all">One-Bedroom</button>
+          <button onclick="switchApt('two-bed')"  id="tab-two-bed"   class="apt-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all">Two-Bedroom</button>
+        </div>
+      </div>
+
+      <!-- STUDIO -->
+      <div id="apt-studio" class="apt-panel reveal">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-4">
+            <!-- Image Gallery -->
+            <div class="rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-brand-dark to-brand-gray aspect-video flex items-center justify-center gallery-card">
+              <div class="text-center text-white/40">
+                <i class="fas fa-image text-5xl mb-3 block"></i>
+                <p class="text-sm">Studio Apartment</p>
+                <p class="text-xs mt-1">[ Replace with your photo ]</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-brand-dark to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Living</div>
+              <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-brand-dark to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Kitchen</div>
+              <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-brand-dark to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Bath</div>
+            </div>
+          </div>
+          <div>
+            <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-3 py-1 text-gold text-xs font-semibold mb-4">Studio Unit</div>
+            <h3 class="font-serif text-3xl font-bold text-brand-gray dark:text-white mb-4">Cosy Studio Apartment</h3>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+              Perfect for solo travellers or couples. Our studios offer a thoughtfully designed open-plan living space with a fully equipped kitchenette, plush king-size bed, and a modern en-suite bathroom — everything you need in a compact, stylish package.
+            </p>
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              <div class="feature-pill"><i class="fas fa-wifi text-gold"></i> High-Speed WiFi</div>
+              <div class="feature-pill"><i class="fas fa-snowflake text-gold"></i> Air Conditioning</div>
+              <div class="feature-pill"><i class="fas fa-kitchen-set text-gold"></i> Kitchenette</div>
+              <div class="feature-pill"><i class="fas fa-tv text-gold"></i> Smart TV</div>
+              <div class="feature-pill"><i class="fas fa-bolt text-gold"></i> 24hr Power</div>
+              <div class="feature-pill"><i class="fas fa-shield-halved text-gold"></i> Secure Entry</div>
+            </div>
+            <a href="#booking" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">
+              Book This Unit <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ONE-BEDROOM -->
+      <div id="apt-one-bed" class="apt-panel hidden reveal">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-4">
+            <div class="rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-[#1a0f0f] to-brand-gray aspect-video flex items-center justify-center gallery-card">
+              <div class="text-center text-white/40">
+                <i class="fas fa-image text-5xl mb-3 block"></i>
+                <p class="text-sm">One-Bedroom Apartment</p>
+                <p class="text-xs mt-1">[ Replace with your photo ]</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a0f0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Bedroom</div>
+              <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a0f0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Living</div>
+              <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a0f0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Kitchen</div>
+            </div>
+          </div>
+          <div>
+            <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-3 py-1 text-gold text-xs font-semibold mb-4">1-Bedroom Unit</div>
+            <h3 class="font-serif text-3xl font-bold text-brand-gray dark:text-white mb-4">One-Bedroom Apartment</h3>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+              Spacious and elegant, our one-bedroom apartments feature a separate living room, a fully equipped kitchen, and a luxurious master bedroom. Ideal for extended stays, business travellers, and couples who want more room to breathe.
+            </p>
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              <div class="feature-pill"><i class="fas fa-wifi text-gold"></i> High-Speed WiFi</div>
+              <div class="feature-pill"><i class="fas fa-snowflake text-gold"></i> Air Conditioning</div>
+              <div class="feature-pill"><i class="fas fa-utensils text-gold"></i> Full Kitchen</div>
+              <div class="feature-pill"><i class="fas fa-tv text-gold"></i> Smart TV</div>
+              <div class="feature-pill"><i class="fas fa-couch text-gold"></i> Separate Lounge</div>
+              <div class="feature-pill"><i class="fas fa-bolt text-gold"></i> 24hr Power</div>
+            </div>
+            <a href="#booking" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">
+              Book This Unit <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TWO-BEDROOM -->
+      <div id="apt-two-bed" class="apt-panel hidden reveal">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-4">
+            <div class="rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-[#0f1a0f] to-brand-gray aspect-video flex items-center justify-center gallery-card">
+              <div class="text-center text-white/40">
+                <i class="fas fa-image text-5xl mb-3 block"></i>
+                <p class="text-sm">Two-Bedroom Apartment</p>
+                <p class="text-xs mt-1">[ Replace with your photo ]</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f1a0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Master</div>
+              <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f1a0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Second</div>
+              <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f1a0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Living</div>
+            </div>
+          </div>
+          <div>
+            <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-3 py-1 text-gold text-xs font-semibold mb-4">2-Bedroom Unit</div>
+            <h3 class="font-serif text-3xl font-bold text-brand-gray dark:text-white mb-4">Two-Bedroom Apartment</h3>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+              Our premium two-bedroom apartments are perfect for families, groups, or those who simply love space. With two en-suite bedrooms, a spacious living and dining area, and a full kitchen, this unit offers the ultimate in comfort and versatility.
+            </p>
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              <div class="feature-pill"><i class="fas fa-wifi text-gold"></i> High-Speed WiFi</div>
+              <div class="feature-pill"><i class="fas fa-snowflake text-gold"></i> 2× Air Conditioning</div>
+              <div class="feature-pill"><i class="fas fa-utensils text-gold"></i> Full Kitchen</div>
+              <div class="feature-pill"><i class="fas fa-bath text-gold"></i> 2× Bathrooms</div>
+              <div class="feature-pill"><i class="fas fa-car text-gold"></i> Parking Included</div>
+              <div class="feature-pill"><i class="fas fa-broom text-gold"></i> Daily Cleaning</div>
+            </div>
+            <a href="#booking" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">
+              Book This Unit <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AMENITIES SECTION ─────────────────────────────────────────────── -->
+  <section id="amenities" class="py-24 bg-brand-dark relative overflow-hidden">
+    <!-- Background texture -->
+    <div class="absolute inset-0 hero-pattern opacity-5"></div>
+    <div class="absolute top-0 left-0 w-72 h-72 rounded-full bg-gold/5 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gold/5 blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-widest">What We Offer</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-3 mb-4">World-Class Amenities</h2>
+        <p class="text-white/50 max-w-xl mx-auto">Every convenience, thoughtfully provided so you can relax and enjoy your stay.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+        <!-- Security -->
+        <div class="amenity-card group">
+          <div class="amenity-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3 class="text-white font-semibold text-lg mb-2">24/7 Security</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Round-the-clock manned security, CCTV surveillance, and secure access control systems for your peace of mind.</p>
+        </div>
+        <!-- Internet -->
+        <div class="amenity-card group">
+          <div class="amenity-icon"><i class="fas fa-wifi"></i></div>
+          <h3 class="text-white font-semibold text-lg mb-2">High-Speed Internet</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Blazing-fast fibre broadband across all units. Stream, video-call, and work without interruption.</p>
+        </div>
+        <!-- Power -->
+        <div class="amenity-card group">
+          <div class="amenity-icon"><i class="fas fa-bolt"></i></div>
+          <h3 class="text-white font-semibold text-lg mb-2">Uninterrupted Power</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Reliable backup generators and inverter systems ensure you never experience a power outage.</p>
+        </div>
+        <!-- Parking -->
+        <div class="amenity-card group">
+          <div class="amenity-icon"><i class="fas fa-square-parking"></i></div>
+          <h3 class="text-white font-semibold text-lg mb-2">Secure Parking</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Dedicated, well-lit parking spaces within the compound. Your vehicle is safe with us.</p>
+        </div>
+        <!-- Cleaning -->
+        <div class="amenity-card group">
+          <div class="amenity-icon"><i class="fas fa-broom"></i></div>
+          <h3 class="text-white font-semibold text-lg mb-2">Housekeeping</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Professional cleaning and laundry services available. Come back to a fresh, immaculate apartment every day.</p>
+        </div>
+        <!-- AC -->
+        <div class="amenity-card group">
+          <div class="amenity-icon"><i class="fas fa-snowflake"></i></div>
+          <h3 class="text-white font-semibold text-lg mb-2">Climate Control</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Split air-conditioning in every room so you can set the perfect temperature for a good night's rest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LOCATION SECTION ──────────────────────────────────────────────── -->
+  <section id="location" class="py-24 bg-white dark:bg-brand-darker">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-widest">Where We Are</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-gray dark:text-white mt-3 mb-4">Perfectly Located</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Raiz Apartments sits at the crossroads of convenience, putting Lagos's key destinations right at your doorstep.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-10 items-start">
+        <!-- Map -->
+        <div class="lg:col-span-3 reveal">
+          <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-white/10 aspect-video">
+            <!--
+              Replace the iframe src with your actual Google Maps embed URL.
+              Go to Google Maps → search your address → Share → Embed a map → copy the src.
+            -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.5!2d3.3792!3d6.5244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1710000000000!5m2!1sen!2sng"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Raiz Apartments Location Map">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Proximity cards -->
+        <div class="lg:col-span-2 space-y-4 reveal">
+          <div class="proximity-card">
+            <div class="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-plane-departure text-gold text-xl"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-brand-gray dark:text-white">International Airport</div>
+              <div class="text-gold text-sm font-bold mt-0.5">~15 minutes</div>
+              <div class="text-gray-400 text-xs mt-1">Murtala Muhammed International Airport</div>
+            </div>
+          </div>
+
+          <div class="proximity-card">
+            <div class="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-city text-gold text-xl"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-brand-gray dark:text-white">Lagos Island</div>
+              <div class="text-gold text-sm font-bold mt-0.5">~20 minutes</div>
+              <div class="text-gray-400 text-xs mt-1">Business district, Marina, Eko Atlantic</div>
+            </div>
+          </div>
+
+          <div class="proximity-card">
+            <div class="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-umbrella-beach text-gold text-xl"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-brand-gray dark:text-white">Lekki</div>
+              <div class="text-gold text-sm font-bold mt-0.5">~25 minutes</div>
+              <div class="text-gray-400 text-xs mt-1">Phase 1, Lekki Conservation Centre</div>
+            </div>
+          </div>
+
+          <div class="proximity-card">
+            <div class="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-shop text-gold text-xl"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-brand-gray dark:text-white">Shopping &amp; Dining</div>
+              <div class="text-gold text-sm font-bold mt-0.5">Walking distance</div>
+              <div class="text-gray-400 text-xs mt-1">Supermarkets, restaurants, cafes nearby</div>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/?q=Lagos,Nigeria" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 border border-gold text-gold hover:bg-gold hover:text-white font-semibold px-5 py-3 rounded-full text-sm transition-all duration-300 mt-2">
+            Get Directions <i class="fas fa-external-link-alt text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BOOKING SECTION ───────────────────────────────────────────────── -->
+  <section id="booking" class="py-24 bg-brand-lightgray dark:bg-brand-dark">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-widest">Reserve Your Stay</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-gray dark:text-white mt-3 mb-4">Book Your Apartment</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Fill in the form below and our team will confirm your reservation within 24 hours.</p>
+      </div>
+
+      <div class="bg-white dark:bg-brand-darker rounded-3xl shadow-2xl p-8 md:p-12 reveal">
+        <!-- Success message (hidden by default) -->
+        <div id="booking-success" class="hidden text-center py-12">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-check-circle text-green-500 text-3xl"></i>
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-brand-gray dark:text-white mb-2">Booking Request Sent!</h3>
+          <p class="text-gray-400 mb-6">Thank you! Our team will confirm your reservation within 24 hours. Check your email for details.</p>
+          <button onclick="resetBookingForm()" class="text-gold hover:text-gold-dark text-sm font-semibold underline">Make another booking</button>
+        </div>
+
+        <!-- Form -->
+        <form id="booking-form" onsubmit="handleBooking(event)" class="grid md:grid-cols-2 gap-6">
+          <!-- Name -->
+          <div class="md:col-span-1">
+            <label class="form-label">Full Name *</label>
+            <input type="text" name="name" required placeholder="John Doe" class="form-input" />
+          </div>
+          <!-- Email -->
+          <div class="md:col-span-1">
+            <label class="form-label">Email Address *</label>
+            <input type="email" name="email" required placeholder="john@example.com" class="form-input" />
+          </div>
+          <!-- Phone -->
+          <div class="md:col-span-1">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" name="phone" required placeholder="+234 800 000 0000" class="form-input" />
+          </div>
+          <!-- Apartment Type -->
+          <div class="md:col-span-1">
+            <label class="form-label">Apartment Type *</label>
+            <select name="apt_type" required class="form-input">
+              <option value="" disabled selected>Select apartment type</option>
+              <option value="studio">Studio Apartment</option>
+              <option value="one-bed">One-Bedroom Apartment</option>
+              <option value="two-bed">Two-Bedroom Apartment</option>
+            </select>
+          </div>
+          <!-- Check-in -->
+          <div class="md:col-span-1">
+            <label class="form-label">Check-in Date *</label>
+            <input type="date" name="checkin" required class="form-input" id="checkin-date" />
+          </div>
+          <!-- Check-out -->
+          <div class="md:col-span-1">
+            <label class="form-label">Check-out Date *</label>
+            <input type="date" name="checkout" required class="form-input" id="checkout-date" />
+          </div>
+          <!-- Message -->
+          <div class="md:col-span-2">
+            <label class="form-label">Special Requests (optional)</label>
+            <textarea name="message" rows="3" placeholder="Any special requirements or questions..." class="form-input resize-none"></textarea>
+          </div>
+
+          <!-- Estimated duration display -->
+          <div id="duration-display" class="md:col-span-2 hidden bg-gold/10 border border-gold/30 rounded-2xl px-5 py-3 flex items-center gap-3 text-sm">
+            <i class="fas fa-moon text-gold"></i>
+            <span id="duration-text" class="text-brand-gray dark:text-white font-medium"></span>
+          </div>
+
+          <!-- Submit -->
+          <div class="md:col-span-2 flex flex-col sm:flex-row items-center gap-4">
+            <button type="submit" id="submit-btn"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">
+              <span id="submit-text">Request Booking</span>
+              <i class="fas fa-arrow-right text-sm" id="submit-icon"></i>
+              <i class="fas fa-spinner fa-spin hidden text-sm" id="submit-spinner"></i>
+            </button>
+            <p class="text-xs text-gray-400">By submitting, you agree to our terms. No payment required at this stage.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS SECTION ──────────────────────────────────────────── -->
+  <section id="testimonials" class="py-24 bg-white dark:bg-brand-darker">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-widest">Guest Reviews</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-gray dark:text-white mt-3 mb-4">What Our Guests Say</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 reveal">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-4">
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+          </div>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 italic">
+            "Absolutely loved my stay at Raiz. The apartment was spotless, the WiFi was fast, and the security gave me real peace of mind. Will definitely be back on my next Lagos trip!"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-bold">A</div>
+            <div>
+              <div class="font-semibold text-brand-gray dark:text-white text-sm">Amaka O.</div>
+              <div class="text-gray-400 text-xs">Business Traveller, Abuja</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-4">
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+          </div>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 italic">
+            "The two-bedroom unit was perfect for our family visit. Spacious, modern, and felt like home. The proximity to the airport made our early flight stress-free. Highly recommended!"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-bold">T</div>
+            <div>
+              <div class="font-semibold text-brand-gray dark:text-white text-sm">Tunde A.</div>
+              <div class="text-xs text-gray-400">Family Stay, UK</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-4">
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star text-gold text-sm"></i>
+            <i class="fas fa-star-half-stroke text-gold text-sm"></i>
+          </div>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 italic">
+            "Clean, comfortable, and great value. The team were responsive and helpful throughout. I've stayed at a lot of serviced apartments in Lagos — Raiz is top tier."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-bold">C</div>
+            <div>
+              <div class="font-semibold text-brand-gray dark:text-white text-sm">Chidi M.</div>
+              <div class="text-xs text-gray-400">Solo Traveller, Port Harcourt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ SECTION ───────────────────────────────────────────────────── -->
+  <section id="faq" class="py-24 bg-brand-lightgray dark:bg-brand-dark">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-widest">FAQ</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-gray dark:text-white mt-3 mb-4">Common Questions</h2>
+      </div>
+
+      <div class="space-y-3 reveal" id="faq-container">
+        <!-- FAQ items injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT SECTION ───────────────────────────────────────────────── -->
+  <section id="contact" class="py-24 bg-white dark:bg-brand-darker">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-gold text-sm font-semibold uppercase tracking-widest">Get In Touch</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-gray dark:text-white mt-3 mb-4">We're Here for You</h2>
+        <p class="text-gray-400 max-w-xl mx-auto">Have a question or want to discuss a longer stay? Reach out through any of our channels — we respond fast.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto reveal">
+        <!-- Phone -->
+        <a href="tel:+2348000000000" class="contact-card group">
+          <div class="contact-icon group-hover:bg-gold group-hover:text-white transition-colors duration-300">
+            <i class="fas fa-phone-flip"></i>
+          </div>
+          <h3 class="font-semibold text-brand-gray dark:text-white mb-1">Call Us</h3>
+          <p class="text-gray-400 text-sm">+234 800 000 0000</p>
+          <span class="text-gold text-xs font-semibold mt-2 inline-block group-hover:underline">Call Now →</span>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:hello@raizapartments.com" class="contact-card group">
+          <div class="contact-icon group-hover:bg-gold group-hover:text-white transition-colors duration-300">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="font-semibold text-brand-gray dark:text-white mb-1">Email Us</h3>
+          <p class="text-gray-400 text-sm">hello@raizapartments.com</p>
+          <span class="text-gold text-xs font-semibold mt-2 inline-block group-hover:underline">Send Email →</span>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/2348000000000?text=Hello%20Raiz%20Apartments%2C%20I%20have%20an%20enquiry."
+           target="_blank" rel="noopener noreferrer" class="contact-card group">
+          <div class="contact-icon group-hover:bg-green-500 group-hover:text-white transition-colors duration-300">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3 class="font-semibold text-brand-gray dark:text-white mb-1">WhatsApp</h3>
+          <p class="text-gray-400 text-sm">Chat with us instantly</p>
+          <span class="text-gold text-xs font-semibold mt-2 inline-block group-hover:underline">Open WhatsApp →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
+  <footer class="bg-brand-dark text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-9 h-9 rounded-full bg-gold flex items-center justify-center text-white font-bold">R</span>
+            <span class="font-serif text-2xl font-bold">Raiz Apartments</span>
+          </div>
+          <p class="text-white/50 text-sm leading-relaxed max-w-sm">
+            Modern, stylish serviced apartments in the heart of Lagos — designed for comfort, security, and convenience.
+          </p>
+          <!-- Social Links -->
+          <div class="flex items-center gap-3 mt-6">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-white mb-5 uppercase tracking-wider text-xs">Quick Links</h4>
+          <ul class="space-y-3 text-sm text-white/50">
+            <li><a href="#about"      class="hover:text-gold transition-colors">About Us</a></li>
+            <li><a href="#apartments" class="hover:text-gold transition-colors">Apartments</a></li>
+            <li><a href="#amenities"  class="hover:text-gold transition-colors">Amenities</a></li>
+            <li><a href="#location"   class="hover:text-gold transition-colors">Location</a></li>
+            <li><a href="#booking"    class="hover:text-gold transition-colors">Book a Stay</a></li>
+          </ul>
+        </div>
+
+        <!-- Apartments -->
+        <div>
+          <h4 class="font-semibold text-white mb-5 uppercase tracking-wider text-xs">Apartments</h4>
+          <ul class="space-y-3 text-sm text-white/50">
+            <li><a href="#apartments" onclick="switchApt('studio')"  class="hover:text-gold transition-colors">Studio Apartment</a></li>
+            <li><a href="#apartments" onclick="switchApt('one-bed')" class="hover:text-gold transition-colors">One-Bedroom</a></li>
+            <li><a href="#apartments" onclick="switchApt('two-bed')" class="hover:text-gold transition-colors">Two-Bedroom</a></li>
+            <li><a href="#booking"    class="hover:text-gold transition-colors">Make Enquiry</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
+        <p>&copy; <span id="footer-year"></span> Raiz Apartments. All rights reserved.</p>
+        <div class="flex gap-5">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
