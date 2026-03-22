@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -38,7 +39,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2 group">
-          <span className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-white font-bold text-sm">R</span>
+          <span className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+            <Image src="/images/logo.jpg" alt="Raiz Apartments" width={32} height={32} className="object-cover w-full h-full" />
+          </span>
           <span className="font-serif text-xl font-bold text-white group-hover:text-gold-light transition-colors" id="nav-logo">Raiz</span>
         </a>
 

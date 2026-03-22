@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function About() {
   return (
     <section id="about" className="py-24 bg-brand-lightgray dark:bg-brand-dark">
@@ -41,15 +43,14 @@ export default function About() {
 
           {/* Image / Visual card */}
           <div className="reveal relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-brand-dark to-brand-gray aspect-[4/5]">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-10">
-                <div className="w-20 h-20 rounded-2xl bg-gold/20 flex items-center justify-center">
-                  <i className="fas fa-building-columns text-gold text-3xl"></i>
-                </div>
-                <p className="text-white/60 text-center text-sm italic">&ldquo;A sanctuary of comfort in the heart of Lagos&rdquo;</p>
-                {/* Replace this div with an actual <img> tag in production */}
-                <p className="text-white/30 text-xs text-center mt-4">[ Replace with your property photo ]</p>
-              </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5]">
+              <Image
+                src="/images/living-room.jpg"
+                alt="Raiz Apartments living room"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-5 -left-5 bg-gold text-white rounded-2xl px-6 py-4 shadow-xl">

@@ -1,3 +1,5 @@
+import { proximityItems } from '@/data/data'
+
 export default function Location() {
   return (
     <section id="location" className="py-24 bg-white dark:bg-brand-darker">
@@ -12,10 +14,6 @@ export default function Location() {
           {/* Map */}
           <div className="lg:col-span-3 reveal">
             <div className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-white/10 aspect-video">
-              {/*
-                Replace the iframe src with your actual Google Maps embed URL.
-                Go to Google Maps → search your address → Share → Embed a map → copy the src.
-              */}
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.5!2d3.3792!3d6.5244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1710000000000!5m2!1sen!2sng"
                 width="100%"
@@ -31,49 +29,18 @@ export default function Location() {
 
           {/* Proximity cards */}
           <div className="lg:col-span-2 space-y-4 reveal">
-            <div className="proximity-card">
-              <div className="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
-                <i className="fas fa-plane-departure text-gold text-xl"></i>
+            {proximityItems.map((item) => (
+              <div key={item.name} className="proximity-card">
+                <div className="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                  <i className={`fas ${item.icon} text-gold text-xl`}></i>
+                </div>
+                <div>
+                  <div className="font-semibold text-brand-gray dark:text-white">{item.name}</div>
+                  <div className="text-gold text-sm font-bold mt-0.5">{item.time}</div>
+                  <div className="text-gray-400 text-xs mt-1">{item.detail}</div>
+                </div>
               </div>
-              <div>
-                <div className="font-semibold text-brand-gray dark:text-white">International Airport</div>
-                <div className="text-gold text-sm font-bold mt-0.5">~15 minutes</div>
-                <div className="text-gray-400 text-xs mt-1">Murtala Muhammed International Airport</div>
-              </div>
-            </div>
-
-            <div className="proximity-card">
-              <div className="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
-                <i className="fas fa-city text-gold text-xl"></i>
-              </div>
-              <div>
-                <div className="font-semibold text-brand-gray dark:text-white">Lagos Island</div>
-                <div className="text-gold text-sm font-bold mt-0.5">~20 minutes</div>
-                <div className="text-gray-400 text-xs mt-1">Business district, Marina, Eko Atlantic</div>
-              </div>
-            </div>
-
-            <div className="proximity-card">
-              <div className="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
-                <i className="fas fa-umbrella-beach text-gold text-xl"></i>
-              </div>
-              <div>
-                <div className="font-semibold text-brand-gray dark:text-white">Lekki</div>
-                <div className="text-gold text-sm font-bold mt-0.5">~25 minutes</div>
-                <div className="text-gray-400 text-xs mt-1">Phase 1, Lekki Conservation Centre</div>
-              </div>
-            </div>
-
-            <div className="proximity-card">
-              <div className="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center flex-shrink-0">
-                <i className="fas fa-shop text-gold text-xl"></i>
-              </div>
-              <div>
-                <div className="font-semibold text-brand-gray dark:text-white">Shopping &amp; Dining</div>
-                <div className="text-gold text-sm font-bold mt-0.5">Walking distance</div>
-                <div className="text-gray-400 text-xs mt-1">Supermarkets, restaurants, cafes nearby</div>
-              </div>
-            </div>
+            ))}
 
             <a
               href="https://maps.google.com/?q=Lagos,Nigeria"

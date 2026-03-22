@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
+import { apartmentFeatures } from '@/data/data'
 
 type TabType = 'studio' | 'one-bed' | 'two-bed'
 
@@ -62,17 +64,19 @@ export default function Apartments() {
           <div id="apt-studio" className={`apt-panel reveal${activeTab !== 'studio' ? ' hidden' : ''}`}>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-4">
-                <div className="rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-brand-dark to-brand-gray aspect-video flex items-center justify-center gallery-card">
-                  <div className="text-center text-white/40">
-                    <i className="fas fa-image text-5xl mb-3 block"></i>
-                    <p className="text-sm">Studio Apartment</p>
-                    <p className="text-xs mt-1">[ Replace with your photo ]</p>
-                  </div>
+                <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-video gallery-card">
+                  <Image src="/images/studio-apartment.jpg" alt="Studio apartment" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                 </div>
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-brand-dark to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Living</div>
-                  <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-brand-dark to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Kitchen</div>
-                  <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-brand-dark to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Bath</div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">
+                    <Image src="/images/living-room.jpg" alt="Living room" fill className="object-cover" sizes="33vw" />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">
+                    <Image src="/images/kitchen.jpg" alt="Kitchen" fill className="object-cover" sizes="33vw" />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">
+                    <Image src="/images/bathrom.jpg" alt="Bathroom" fill className="object-cover" sizes="33vw" />
+                  </div>
                 </div>
               </div>
               <div>
@@ -82,12 +86,9 @@ export default function Apartments() {
                   Perfect for solo travellers or couples. Our studios offer a thoughtfully designed open-plan living space with a fully equipped kitchenette, plush king-size bed, and a modern en-suite bathroom — everything you need in a compact, stylish package.
                 </p>
                 <div className="grid grid-cols-2 gap-3 mb-8">
-                  <div className="feature-pill"><i className="fas fa-wifi text-gold"></i> High-Speed WiFi</div>
-                  <div className="feature-pill"><i className="fas fa-snowflake text-gold"></i> Air Conditioning</div>
-                  <div className="feature-pill"><i className="fas fa-kitchen-set text-gold"></i> Kitchenette</div>
-                  <div className="feature-pill"><i className="fas fa-tv text-gold"></i> Smart TV</div>
-                  <div className="feature-pill"><i className="fas fa-bolt text-gold"></i> 24hr Power</div>
-                  <div className="feature-pill"><i className="fas fa-shield-halved text-gold"></i> Secure Entry</div>
+                  {apartmentFeatures.studio.map((f) => (
+                    <div key={f.label} className="feature-pill"><i className={`fas ${f.icon} text-gold`}></i> {f.label}</div>
+                  ))}
                 </div>
                 <a href="#booking" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">
                   Book This Unit <i className="fas fa-arrow-right text-xs"></i>
@@ -100,17 +101,19 @@ export default function Apartments() {
           <div id="apt-one-bed" className={`apt-panel reveal${activeTab !== 'one-bed' ? ' hidden' : ''}`}>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-4">
-                <div className="rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-[#1a0f0f] to-brand-gray aspect-video flex items-center justify-center gallery-card">
-                  <div className="text-center text-white/40">
-                    <i className="fas fa-image text-5xl mb-3 block"></i>
-                    <p className="text-sm">One-Bedroom Apartment</p>
-                    <p className="text-xs mt-1">[ Replace with your photo ]</p>
-                  </div>
+                <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-video gallery-card">
+                  <Image src="/images/one-bedroom-apartment.jpg" alt="One-bedroom apartment" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                 </div>
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a0f0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Bedroom</div>
-                  <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a0f0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Living</div>
-                  <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a0f0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Kitchen</div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">
+                    <Image src="/images/one-bedroom-apartment2.jpg" alt="Bedroom" fill className="object-cover" sizes="33vw" />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">
+                    <Image src="/images/living-room2.jpg" alt="Living room" fill className="object-cover" sizes="33vw" />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">
+                    <Image src="/images/kitchen2.jpg" alt="Kitchen" fill className="object-cover" sizes="33vw" />
+                  </div>
                 </div>
               </div>
               <div>
@@ -120,12 +123,9 @@ export default function Apartments() {
                   Spacious and elegant, our one-bedroom apartments feature a separate living room, a fully equipped kitchen, and a luxurious master bedroom. Ideal for extended stays, business travellers, and couples who want more room to breathe.
                 </p>
                 <div className="grid grid-cols-2 gap-3 mb-8">
-                  <div className="feature-pill"><i className="fas fa-wifi text-gold"></i> High-Speed WiFi</div>
-                  <div className="feature-pill"><i className="fas fa-snowflake text-gold"></i> Air Conditioning</div>
-                  <div className="feature-pill"><i className="fas fa-utensils text-gold"></i> Full Kitchen</div>
-                  <div className="feature-pill"><i className="fas fa-tv text-gold"></i> Smart TV</div>
-                  <div className="feature-pill"><i className="fas fa-couch text-gold"></i> Separate Lounge</div>
-                  <div className="feature-pill"><i className="fas fa-bolt text-gold"></i> 24hr Power</div>
+                  {apartmentFeatures.oneBed.map((f) => (
+                    <div key={f.label} className="feature-pill"><i className={`fas ${f.icon} text-gold`}></i> {f.label}</div>
+                  ))}
                 </div>
                 <a href="#booking" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">
                   Book This Unit <i className="fas fa-arrow-right text-xs"></i>
@@ -138,17 +138,19 @@ export default function Apartments() {
           <div id="apt-two-bed" className={`apt-panel reveal${activeTab !== 'two-bed' ? ' hidden' : ''}`}>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-4">
-                <div className="rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-[#0f1a0f] to-brand-gray aspect-video flex items-center justify-center gallery-card">
-                  <div className="text-center text-white/40">
-                    <i className="fas fa-image text-5xl mb-3 block"></i>
-                    <p className="text-sm">Two-Bedroom Apartment</p>
-                    <p className="text-xs mt-1">[ Replace with your photo ]</p>
-                  </div>
+                <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-video gallery-card">
+                  <Image src="/images/two-bedroom-apartment.jpg" alt="Two-bedroom apartment" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                 </div>
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f1a0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Master</div>
-                  <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f1a0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Second</div>
-                  <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f1a0f] to-brand-gray aspect-square flex items-center justify-center text-white/20 text-xs gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">Living</div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">
+                    <Image src="/images/living-room.jpg" alt="Master bedroom" fill className="object-cover" sizes="33vw" />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">
+                    <Image src="/images/kitchen.jpg" alt="Second bedroom" fill className="object-cover" sizes="33vw" />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square gallery-thumb cursor-pointer hover:ring-2 hover:ring-gold transition-all">
+                    <Image src="/images/bathrom.jpg" alt="Living area" fill className="object-cover" sizes="33vw" />
+                  </div>
                 </div>
               </div>
               <div>
@@ -158,12 +160,9 @@ export default function Apartments() {
                   Our premium two-bedroom apartments are perfect for families, groups, or those who simply love space. With two en-suite bedrooms, a spacious living and dining area, and a full kitchen, this unit offers the ultimate in comfort and versatility.
                 </p>
                 <div className="grid grid-cols-2 gap-3 mb-8">
-                  <div className="feature-pill"><i className="fas fa-wifi text-gold"></i> High-Speed WiFi</div>
-                  <div className="feature-pill"><i className="fas fa-snowflake text-gold"></i> 2× Air Conditioning</div>
-                  <div className="feature-pill"><i className="fas fa-utensils text-gold"></i> Full Kitchen</div>
-                  <div className="feature-pill"><i className="fas fa-bath text-gold"></i> 2× Bathrooms</div>
-                  <div className="feature-pill"><i className="fas fa-car text-gold"></i> Parking Included</div>
-                  <div className="feature-pill"><i className="fas fa-broom text-gold"></i> Daily Cleaning</div>
+                  {apartmentFeatures.twoBed.map((f) => (
+                    <div key={f.label} className="feature-pill"><i className={`fas ${f.icon} text-gold`}></i> {f.label}</div>
+                  ))}
                 </div>
                 <a href="#booking" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-semibold px-6 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">
                   Book This Unit <i className="fas fa-arrow-right text-xs"></i>

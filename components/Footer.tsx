@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import { quickLinks, apartmentLinks, socialLinks } from '@/data/data'
+
 export default function Footer() {
   return (
     <footer className="bg-brand-dark text-white pt-16 pb-8">
@@ -6,7 +9,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-9 h-9 rounded-full bg-gold flex items-center justify-center text-white font-bold">R</span>
+              <span className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
+                <Image src="/images/logo.jpg" alt="Raiz Apartments" width={36} height={36} className="object-cover w-full h-full" />
+              </span>
               <span className="font-serif text-2xl font-bold">Raiz Apartments</span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed max-w-sm">
@@ -14,10 +19,11 @@ export default function Footer() {
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3 mt-6">
-              <a href="#" className="social-icon" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-              <a href="#" className="social-icon" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" className="social-icon" aria-label="Twitter / X"><i className="fab fa-x-twitter"></i></a>
-              <a href="#" className="social-icon" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+              {socialLinks.map((s) => (
+                <a key={s.label} href={s.href} className="social-icon" aria-label={s.label}>
+                  <i className={s.icon}></i>
+                </a>
+              ))}
             </div>
           </div>
 
@@ -25,11 +31,9 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-5 uppercase tracking-wider text-xs">Quick Links</h4>
             <ul className="space-y-3 text-sm text-white/50">
-              <li><a href="#about"      className="hover:text-gold transition-colors">About Us</a></li>
-              <li><a href="#apartments" className="hover:text-gold transition-colors">Apartments</a></li>
-              <li><a href="#amenities"  className="hover:text-gold transition-colors">Amenities</a></li>
-              <li><a href="#location"   className="hover:text-gold transition-colors">Location</a></li>
-              <li><a href="#booking"    className="hover:text-gold transition-colors">Book a Stay</a></li>
+              {quickLinks.map((l) => (
+                <li key={l.label}><a href={l.href} className="hover:text-gold transition-colors">{l.label}</a></li>
+              ))}
             </ul>
           </div>
 
@@ -37,10 +41,9 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-5 uppercase tracking-wider text-xs">Apartments</h4>
             <ul className="space-y-3 text-sm text-white/50">
-              <li><a href="#apartments" className="hover:text-gold transition-colors">Studio Apartment</a></li>
-              <li><a href="#apartments" className="hover:text-gold transition-colors">One-Bedroom</a></li>
-              <li><a href="#apartments" className="hover:text-gold transition-colors">Two-Bedroom</a></li>
-              <li><a href="#booking"    className="hover:text-gold transition-colors">Make Enquiry</a></li>
+              {apartmentLinks.map((l) => (
+                <li key={l.label}><a href={l.href} className="hover:text-gold transition-colors">{l.label}</a></li>
+              ))}
             </ul>
           </div>
         </div>
